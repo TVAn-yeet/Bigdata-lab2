@@ -1,0 +1,17 @@
+{
+  "test_id": "I04",
+  "status": "PASS",
+  "raw_get": {
+    "bucket": "research-raw",
+    "key": "lab2/inputs/batch-01/observations_a.csv",
+    "result": "PASS",
+    "bytes": 421028
+  },
+  "release_put": {
+    "bucket": "research-release",
+    "key": "lab2/task1-access-test/should-not-exist.txt",
+    "result": "PASS",
+    "http_status": 403,
+    "expected": "Curator identity must not have release write access."
+  }
+}

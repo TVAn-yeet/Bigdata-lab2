@@ -1,0 +1,14 @@
+[
+  {
+    "store_id": "bd-gXX-objects",
+    "key": "lab2/inputs/batch-01/observations_a.csv",
+    "records": 5000,
+    "sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea"
+  },
+  {
+    "store_id": "bd-gXX-objects",
+    "key": "lab2/inputs/batch-01/observations_b.jsonl",
+    "records": 5205,
+    "sha256": "3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70"
+  }
+]

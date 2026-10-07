@@ -1,0 +1,12 @@
+{
+  "test_id": "I03",
+  "name": "Byte-flip integrity test",
+  "status": "PASS",
+  "object": "observations_a.csv",
+  "original_bytes": 421028,
+  "modified_bytes": 421028,
+  "expected_sha256": "5157418915d867980facf8d84551a8b856bba1669ca2e33cef91a15ee82101aea",
+  "mutation": "First byte was flipped in a disposable copy.",
+  "result": "Modified copy SHA256 differed from trusted SHA256 and was correctly rejected.",
+  "check": "INPUT_INTEGRITY: PASS"
+}

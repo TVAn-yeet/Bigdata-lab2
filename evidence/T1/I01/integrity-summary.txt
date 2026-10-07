@@ -1,0 +1,73 @@
+T1-I01 Trusted Input Integrity Verification
+============================================
+
+STATUS: PASS
+
+Trusted manifest:
+input/trusted_manifest.json
+
+Verification method:
+- Compared trusted-manifest SHA256 with SHA256 of staged snapshot files.
+- Compared expected record counts with trusted manifest.
+- Source bytes and SHA256 were verified during staging.
+
+OBJECT 1
+--------
+Key: observations_a.csv
+Expected bytes: 421028
+Expected records: 5000
+Expected SHA256:
+5157418915d867980afc8d84551a8b856bba1669ca2e33cef91a15ee82101aea
+
+Actual SHA256:
+5157418915d867980afc8d84551a8b856bba1669ca2e33cef91a15ee82101aea
+
+Result: PASS
+
+
+OBJECT 2
+--------
+Key: observations_b.jsonl
+Expected bytes: 1037439
+Expected records: 5205
+Expected SHA256:
+3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70
+
+Actual SHA256:
+3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70
+
+Result: PASS
+
+
+OBJECT 3
+--------
+Key: qa_reference.csv
+Expected bytes: 1423
+Expected records: 100
+Expected SHA256:
+129463c2a4e63f2dabfa2a5dd31b92e4fe4858d2415d3c7ef495cc6c6d7b65c2
+
+Actual SHA256:
+129463c2a4e63f2dabfa2a5dd31b92e4fe4858d2415d3c7ef495cc6c6d7b65c2
+
+Result: PASS
+
+
+OBJECT 4
+--------
+Key: sensors.csv
+Expected bytes: 256
+Expected records: 20
+Expected SHA256:
+02c390e127c37b9d12e9ca156eae23a450ad1ae037001cddd9651bb6516b9bde
+
+Actual SHA256:
+02c390e127c37b9d12e9ca156eae23a450ad1ae037001cddd9651bb6516b9bde
+
+Result: PASS
+
+
+OVERALL
+-------
+All 4 trusted source objects passed byte/hash verification.
+I01: PASS

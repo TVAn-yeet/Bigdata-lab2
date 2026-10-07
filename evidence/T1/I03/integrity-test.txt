@@ -1,0 +1,6 @@
+original_bytes = 421028
+modified_bytes = 421028
+expected_sha256 = 5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea
+modified_sha256 = abf16694706a4c8def6a7473a6fd14647309f5d8a4a52b70e2f4c59d245d4e7a
+INPUT_INTEGRITY: PASS
+Modified copy correctly rejected
