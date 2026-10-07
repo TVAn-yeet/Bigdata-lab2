@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curate
+  namespace: bd-g01
+  labels:
+    access: s3
+spec:
+  automountServiceAccountToken: false
+
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    seccompProfile:
+      type: RuntimeDefault
+
+  containers:
+    - name: curator
+      image: asia-southeast1-docker.pkg.dev/project-6d752cd4-bbec-4fc9-ba7/bigdata-lab2/curator@sha256:ab0cf7c798ea1fca2aee8d76add0abbee53a8080d2a7940828d62709ca2cc4e0
+
+      command: ["sleep", "infinity"]
+      workingDir: /work
+
+      envFrom:
+        - secretRef:
+            name: s3-ingestor
+
+      env:
+        - name: S3_ENDPOINT
+          value: "http://objects:8333"
+        - name: STORE_ID
+          value: "bd-g01-objects"
+
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "512Mi"
+        limits:
+          cpu: "1"
+          memory: "1Gi"
+
+      volumeMounts:
+        - name: work
+          mountPath: /work
+
+  volumes:
+    - name: work
+      emptyDir:
+        sizeLimit: 2Gi

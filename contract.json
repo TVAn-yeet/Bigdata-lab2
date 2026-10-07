@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "research-telemetry-v1",
+  "as_of": "2026-02-09T00:00:00Z",
+
+  "supported_units": ["C", "F"],
+
+  "temperature_range_c": {
+    "min": 0,
+    "max": 50
+  },
+
+  "late_threshold_seconds": 300,
+
+  "record_id_pattern": "^R[0-9]{6}$",
+
+  "deduplication": {
+    "business_key": ["record_id"],
+    "order": [
+      "ingest_time_utc DESC NULLS LAST",
+      "source_object ASC",
+      "source_row ASC"
+    ]
+  },
+
+  "primary_reason_precedence": [
+    "PARSE",
+    "KEY",
+    "INGEST_PARSE",
+    "REQUIRED",
+    "NUMERIC",
+    "UNIT",
+    "RANGE",
+    "TIME_PARSE",
+    "TIME_ORDER",
+    "REFERENCE"
+  ],
+
+  "release_thresholds": {
+    "required_completeness": 1.0,
+    "business_key_uniqueness": 1.0,
+    "value_validity": 1.0,
+    "sensor_consistency": 1.0,
+    "chronology": 1.0,
+    "timeliness": 0.95,
+    "qa_coverage": 1.0,
+    "qa_agreement": 0.95
+  }
+}

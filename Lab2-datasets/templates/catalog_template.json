@@ -1,0 +1,20 @@
+{
+  "dataset_id": "<fill-me>",
+  "title": "<fill-me>",
+  "purpose": "<fill-me>",
+  "owner": "<fill-me>",
+  "steward": "<fill-me>",
+  "classification": "<fill-me>",
+  "allowed_use": "Synthetic teaching data only",
+  "location": "<s3-or-local-location>",
+  "schema_version": "research-telemetry-v1",
+  "as_of": "2026-02-09T00:00:00Z",
+  "row_count": 0,
+  "columns": [],
+  "input_manifest_sha256": "<64-hex>",
+  "contract_sha256": "<64-hex>",
+  "code_sha256": "<64-hex>",
+  "quality_report": "<fill-me>",
+  "retention": {},
+  "provenance": {}
+}

@@ -1,0 +1,12 @@
+{
+  "eventType": "COMPLETE",
+  "eventTime": "<RFC3339-timestamp>",
+  "run": {"runId": "<uuid>"},
+  "job": {
+    "namespace": "bigdata-lab2",
+    "name": "<curate-or-validate-and-publish>"
+  },
+  "inputs": [],
+  "outputs": [],
+  "producer": "https://example.edu/bigdata/lab2"
+}

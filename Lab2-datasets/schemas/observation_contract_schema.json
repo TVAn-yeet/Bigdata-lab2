@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.edu/bigdata/lab2/observation-contract.schema.json",
+  "title": "Lab 2 Observation Contract",
+  "type": "object",
+  "required": [
+    "schema_version", "as_of", "supported_units", "temperature_range_c",
+    "late_threshold_seconds", "record_id_pattern", "deduplication",
+    "primary_reason_precedence", "release_thresholds"
+  ],
+  "properties": {
+    "schema_version": {"const": "research-telemetry-v1"},
+    "as_of": {"type": "string", "format": "date-time"},
+    "supported_units": {
+      "type": "array", "items": {"enum": ["C", "F"]}, "uniqueItems": true
+    },
+    "temperature_range_c": {
+      "type": "object", "required": ["min", "max"],
+      "properties": {"min": {"type": "number"}, "max": {"type": "number"}},
+      "additionalProperties": false
+    },
+    "late_threshold_seconds": {"type": "integer", "minimum": 0},
+    "record_id_pattern": {"type": "string"},
+    "deduplication": {
+      "type": "object",
+      "required": ["business_key", "order"],
+      "properties": {
+        "business_key": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "order": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "primary_reason_precedence": {
+      "type": "array", "minItems": 1, "items": {"type": "string"}
+    },
+    "release_thresholds": {
+      "type": "object",
+      "required": ["required_completeness", "business_key_uniqueness", "value_validity", "sensor_consistency", "chronology", "timeliness", "qa_coverage", "qa_agreement"],
+      "properties": {
+        "required_completeness": {"type": "number", "minimum": 0, "maximum": 1},
+        "business_key_uniqueness": {"type": "number", "minimum": 0, "maximum": 1},
+        "value_validity": {"type": "number", "minimum": 0, "maximum": 1},
+        "sensor_consistency": {"type": "number", "minimum": 0, "maximum": 1},
+        "chronology": {"type": "number", "minimum": 0, "maximum": 1},
+        "timeliness": {"type": "number", "minimum": 0, "maximum": 1},
+        "qa_coverage": {"type": "number", "minimum": 0, "maximum": 1},
+        "qa_agreement": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
