@@ -1,0 +1,22 @@
+T1-I02 Physical Record Check
+============================
+
+STATUS: PASS
+
+TOTAL DATA ROWS: 10205
+UNIQUE PHYSICAL KEYS: 10205
+DUPLICATE PHYSICAL KEYS: 0
+
+BY SOURCE OBJECT:
+observations_a.csv: 5000
+observations_b.jsonl: 5205
+
+PARSE STATUS:
+true: 10200
+false: 5
+
+Physical key:
+(source_object, source_row)
+
+The 5 parse-failed records are preserved.
+No physical records were removed during staging.
