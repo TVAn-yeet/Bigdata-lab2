@@ -1,0 +1,9 @@
+Test ID: I04
+Timestamp UTC: 2026-10-09T07:15:28.664391+00:00
+Store ID: bd-g01-objects
+Bucket: research-raw
+Key: lab2/inputs/batch-01/observations_a.csv
+Result: PASS
+HTTP status: 200
+Bytes retrieved: 421028
+SHA-256: 5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea

@@ -1,0 +1,9 @@
+Test ID: I04
+Timestamp UTC: 2026-10-09T07:15:28.664391+00:00
+Store ID: bd-g01-objects
+Bucket: research-release
+Key: lab2/task1-access-test/should-not-exist-20261009T071528698924Z.txt
+Result: PASS
+Error code: AccessDenied
+HTTP status: 403
+Expected behavior: curator identity must not have release write access.
