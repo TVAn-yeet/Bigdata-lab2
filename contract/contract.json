@@ -6,11 +6,11 @@
   "supported_units": ["C", "F"],
 
   "temperature_range_c": {
-    "min": 0,
-    "max": 50
+    "min": -30,
+    "max": 60
   },
 
-  "late_threshold_seconds": 300,
+  "late_threshold_seconds": 900,
 
   "record_id_pattern": "^R[0-9]{6}$",
 
