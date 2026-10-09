@@ -1,14 +1,42 @@
 [
   {
-    "store_id": "bd-gXX-objects",
+    "store_id": "bd-g01-objects",
+    "bucket": "research-raw",
     "key": "lab2/inputs/batch-01/observations_a.csv",
+    "format": "CSV",
     "records": 5000,
-    "sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea"
+    "bytes": 421028,
+    "sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea",
+    "retrieved_at_utc": "2026-10-09T07:26:53.955221+00:00"
   },
   {
-    "store_id": "bd-gXX-objects",
+    "store_id": "bd-g01-objects",
+    "bucket": "research-raw",
     "key": "lab2/inputs/batch-01/observations_b.jsonl",
+    "format": "JSONL",
     "records": 5205,
-    "sha256": "3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70"
+    "bytes": 1037439,
+    "sha256": "3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70",
+    "retrieved_at_utc": "2026-10-09T07:26:53.955221+00:00"
+  },
+  {
+    "store_id": "bd-g01-objects",
+    "bucket": "research-raw",
+    "key": "lab2/inputs/batch-01/qa_reference.csv",
+    "format": "CSV",
+    "records": 100,
+    "bytes": 1423,
+    "sha256": "129463c2a4e63f2dabfa2a5dd31b92e4fe4858d2415d3c7ef495cc6c6d7b65c2",
+    "retrieved_at_utc": "2026-10-09T07:26:53.955221+00:00"
+  },
+  {
+    "store_id": "bd-g01-objects",
+    "bucket": "research-raw",
+    "key": "lab2/inputs/batch-01/sensors.csv",
+    "format": "CSV",
+    "records": 20,
+    "bytes": 256,
+    "sha256": "02c390e127c37b9d12e9ca156eae23a450ad1ae037001cddd9651bb6516b9bde",
+    "retrieved_at_utc": "2026-10-09T07:26:53.955221+00:00"
   }
 ]

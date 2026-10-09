@@ -1,17 +1,25 @@
 {
   "test_id": "I04",
   "status": "PASS",
+  "timestamp_utc": "2026-10-09T07:15:28.664391+00:00",
+  "store_id": "bd-g01-objects",
   "raw_get": {
     "bucket": "research-raw",
     "key": "lab2/inputs/batch-01/observations_a.csv",
     "result": "PASS",
-    "bytes": 421028
+    "http_status": 200,
+    "bytes": 421028,
+    "sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea"
   },
   "release_put": {
     "bucket": "research-release",
-    "key": "lab2/task1-access-test/should-not-exist.txt",
+    "key": "lab2/task1-access-test/should-not-exist-20261009T071528698924Z.txt",
     "result": "PASS",
-    "http_status": 403,
-    "expected": "Curator identity must not have release write access."
-  }
+    "error_code": "AccessDenied",
+    "http_status": 403
+  },
+  "evidence_files": [
+    "raw-get.txt",
+    "release-put.txt"
+  ]
 }
