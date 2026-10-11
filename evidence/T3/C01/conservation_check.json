@@ -1,0 +1,20 @@
+{
+  "check_id": "C01",
+  "description": "Reconciliation and physical-key set partition verification",
+  "n_raw": 10205,
+  "n_curated": 9610,
+  "n_quarantine": 395,
+  "n_duplicates": 200,
+  "sum_outputs": 10205,
+  "conservation_delta": 0,
+  "pairwise_disjoint": true,
+  "overlap_counts": {
+    "curated_quarantine": 0,
+    "curated_duplicates": 0,
+    "quarantine_duplicates": 0
+  },
+  "lost_records_count": 0,
+  "invented_records_count": 0,
+  "curated_business_key_duplicates": 0,
+  "status": "PASS"
+}

@@ -1,0 +1,10 @@
+{
+  "check_id": "C02",
+  "description": "Deterministic curation replay equivalence under shuffled input enumeration",
+  "curated_hash_match": true,
+  "quarantine_hash_match": true,
+  "duplicates_hash_match": true,
+  "base_curated_digest": "fb1392bff269c569226649f6892090a241d89b45d31b41d07c75d174002d3fde",
+  "replay_curated_digest": "fb1392bff269c569226649f6892090a241d89b45d31b41d07c75d174002d3fde",
+  "status": "PASS"
+}

@@ -1,0 +1,43 @@
+{
+  "check_id": "C03",
+  "description": "Curated Parquet schema allowlist and privacy attribute minimization",
+  "actual_columns": [
+    "record_id",
+    "sensor_id",
+    "site",
+    "event_time_utc",
+    "ingest_time_utc",
+    "temperature_c",
+    "is_late",
+    "source_object",
+    "source_row",
+    "source_sha256"
+  ],
+  "expected_columns": [
+    "record_id",
+    "sensor_id",
+    "site",
+    "event_time_utc",
+    "ingest_time_utc",
+    "temperature_c",
+    "is_late",
+    "source_object",
+    "source_row",
+    "source_sha256"
+  ],
+  "column_types": {
+    "record_id": "VARCHAR",
+    "sensor_id": "VARCHAR",
+    "site": "VARCHAR",
+    "event_time_utc": "TIMESTAMP",
+    "ingest_time_utc": "TIMESTAMP",
+    "temperature_c": "DECIMAL(8,2)",
+    "is_late": "BOOLEAN",
+    "source_object": "VARCHAR",
+    "source_row": "BIGINT",
+    "source_sha256": "VARCHAR"
+  },
+  "has_forbidden_privacy_columns": false,
+  "exact_allowlist_match": true,
+  "status": "PASS"
+}

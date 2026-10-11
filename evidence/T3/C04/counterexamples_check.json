@@ -1,0 +1,32 @@
+{
+  "check_id": "C04",
+  "description": "Counterexamples and edge case behavior verification",
+  "counterexamples": [
+    {
+      "case": "CE1: 32 deg F conversion",
+      "expected": "Converted to 0.00 C and retained",
+      "observed_temperature_c": 0.0,
+      "passed": true
+    },
+    {
+      "case": "CE2: Unsupported K unit",
+      "expected": "Quarantine with reason UNIT",
+      "observed_reason": "UNIT",
+      "passed": true
+    },
+    {
+      "case": "CE3: Blank operator_email",
+      "expected": "Retained, email excluded from release schema",
+      "observed_temperature_c": 25.0,
+      "passed": true
+    },
+    {
+      "case": "CE4: Newer invalid winner + older valid version",
+      "expected": "Newer quarantined (RANGE), older in duplicate ledger (SUPERSEDED), none in curated",
+      "observed_quarantine_row": 5,
+      "observed_duplicate_row": 4,
+      "passed": true
+    }
+  ],
+  "status": "PASS"
+}
