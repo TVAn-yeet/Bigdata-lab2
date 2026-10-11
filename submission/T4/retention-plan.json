@@ -1,0 +1,49 @@
+{
+  "retention_plan_version": "1.0.0",
+  "generated_at": "2026-10-11T16:25:00Z",
+  "execution_mode": "DRY_RUN_ONLY",
+  "global_governance_rules": {
+    "time_basis": "PIPELINE_COMPLETION_TIMESTAMP",
+    "legal_hold_status": "INACTIVE_UNLESS_FLAGGED",
+    "active_release_dependency_enforced": true,
+    "actual_deletion_performed": false
+  },
+  "policies": [
+    {
+      "policy_id": "RAW_INPUT_RETENTION",
+      "target_dataset": "raw_observations",
+      "ttl_days": 30,
+      "dependency_rule": "Cannot delete raw inputs if downstream active release or dependency holds reference.",
+      "dry_run_evaluation": {
+        "status": "PASS",
+        "action_simulated": "ARCHIVE_OR_DELETE_DRY_RUN",
+        "records_affected": 0,
+        "note": "Dry-run execution only; no physical deletion performed."
+      }
+    },
+    {
+      "policy_id": "RELEASE_RETENTION",
+      "target_dataset": "curated_candidate",
+      "ttl_days": 90,
+      "dependency_rule": "Independent analytical lifecycle release.",
+      "dry_run_evaluation": {
+        "status": "PASS",
+        "action_simulated": "RETAIN",
+        "records_affected": 0,
+        "note": "Within active lifecycle window."
+      }
+    },
+    {
+      "policy_id": "QUARANTINE_RETENTION",
+      "target_dataset": "quarantine_collection",
+      "ttl_days": 7,
+      "dependency_rule": "Isolated error analysis stream; expires 7 days post-run completion.",
+      "dry_run_evaluation": {
+        "status": "PASS",
+        "action_simulated": "KEEP_OR_HOLD_DRY_RUN",
+        "records_affected": 355,
+        "note": "Dry-run simulation for quarantine isolation window."
+      }
+    }
+  ]
+}
