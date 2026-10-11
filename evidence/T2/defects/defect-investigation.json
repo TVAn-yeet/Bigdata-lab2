@@ -1,0 +1,65 @@
+{
+  "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271",
+  "dataset_version": "research-telemetry-v1",
+  "operator_role": "B / Quality",
+  "reviewer_role": "E / Release (independent QA agreement and coverage check after T3)",
+  "review_status": "PENDING_PEER_REVIEW",
+  "counts_overlap": true,
+  "category_counts": [
+    {
+      "defect_code": "DUPLICATE_VERSION",
+      "defect_count": 200
+    },
+    {
+      "defect_code": "EVENT_TIME_PARSE",
+      "defect_count": 40
+    },
+    {
+      "defect_code": "INGEST_TIME_PARSE",
+      "defect_count": 20
+    },
+    {
+      "defect_code": "INVALID_RECORD_ID",
+      "defect_count": 20
+    },
+    {
+      "defect_code": "LATE_RETAINED",
+      "defect_count": 200
+    },
+    {
+      "defect_code": "NUMERIC_INVALID",
+      "defect_count": 170
+    },
+    {
+      "defect_code": "PARSE_FAILURE",
+      "defect_count": 5
+    },
+    {
+      "defect_code": "REQUIRED_FIELD_MISSING",
+      "defect_count": 110
+    },
+    {
+      "defect_code": "TIME_ORDER",
+      "defect_count": 30
+    },
+    {
+      "defect_code": "UNIT_UNSUPPORTED",
+      "defect_count": 40
+    },
+    {
+      "defect_code": "UNKNOWN_SENSOR",
+      "defect_count": 30
+    },
+    {
+      "defect_code": "VALUE_OUT_OF_RANGE",
+      "defect_count": 40
+    }
+  ],
+  "sample_policy": "Up to five deterministic physical-row references per category.",
+  "sample_file": "outputs/t2_quality/defects.csv",
+  "sample_file_sha256": "57b4d63f49fda74f092e5053a8e36d353757e23725be132942583a3cb16e1efd",
+  "restricted_fields_excluded": [
+    "operator_email",
+    "raw_payload"
+  ]
+}

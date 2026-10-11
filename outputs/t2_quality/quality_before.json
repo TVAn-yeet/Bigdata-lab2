@@ -1,0 +1,182 @@
+{
+  "measurement_status": "MEASURED",
+  "dataset_id": "research-telemetry-v1-before",
+  "dataset_version": "research-telemetry-v1",
+  "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271",
+  "generated_at_utc": "2026-10-09T08:35:56.664571+00:00",
+  "as_of": "2026-02-09T00:00:00Z",
+  "population": "Deterministic winners before row-validity filtering",
+  "counts": {
+    "raw_records": 10205,
+    "parse_failures": 5,
+    "parsed_intake_records": 10200,
+    "key_rejected_records": 40,
+    "key_eligible_records": 10160,
+    "winners_before_validity": 9960,
+    "duplicate_excess": 200,
+    "parsed_intake_required_failures": 130,
+    "late_winners_before_curation": 200
+  },
+  "metrics": [
+    {
+      "rule_id": "Q_BUSINESS_KEY_UNIQUENESS",
+      "metric_name": "Business-key uniqueness before deduplication",
+      "cohort": "Key-eligible records before deduplication",
+      "numerator": 9960,
+      "denominator": 10160,
+      "value": 0.9803149606299213,
+      "threshold": 1.0,
+      "severity": "BLOCK",
+      "status": "FAIL",
+      "measure": "distinct_record_ids",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    },
+    {
+      "rule_id": "Q_INTAKE_REQUIRED_FAILURES",
+      "metric_name": "Required-field failures in parsed intake",
+      "cohort": "Parsed intake rows; before key filtering",
+      "numerator": 130,
+      "denominator": 10200,
+      "value": 0.012745098039215686,
+      "threshold": null,
+      "severity": "INFO",
+      "status": "OBSERVED",
+      "measure": "failure_rows",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    },
+    {
+      "rule_id": "Q_REFERENTIAL_CONSISTENCY",
+      "metric_name": "Sensor registry consistency",
+      "cohort": "Deterministic winners W before row-validity filtering",
+      "numerator": 9930,
+      "denominator": 9960,
+      "value": 0.9969879518072289,
+      "threshold": 1.0,
+      "severity": "BLOCK",
+      "status": "FAIL",
+      "measure": "known_sensor_rows",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    },
+    {
+      "rule_id": "Q_REQUIRED_COMPLETENESS",
+      "metric_name": "Required-field completeness",
+      "cohort": "Deterministic winners W before row-validity filtering",
+      "numerator": 9850,
+      "denominator": 9960,
+      "value": 0.9889558232931727,
+      "threshold": 1.0,
+      "severity": "BLOCK",
+      "status": "FAIL",
+      "measure": "complete_rows",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    },
+    {
+      "rule_id": "Q_TEMPORAL_CONSISTENCY",
+      "metric_name": "Timestamp parsing and chronology",
+      "cohort": "Deterministic winners W before row-validity filtering",
+      "numerator": 9890,
+      "denominator": 9960,
+      "value": 0.9929718875502008,
+      "threshold": 1.0,
+      "severity": "BLOCK",
+      "status": "FAIL",
+      "measure": "chronologically_valid_rows",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    },
+    {
+      "rule_id": "Q_TIMELINESS",
+      "metric_name": "Arrival within the contract lag threshold",
+      "cohort": "Chronologically valid winners only",
+      "numerator": 9690,
+      "denominator": 9890,
+      "value": 0.9797775530839231,
+      "threshold": 0.95,
+      "severity": "BLOCK",
+      "status": "PASS",
+      "measure": "timely_rows",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    },
+    {
+      "rule_id": "Q_VALUE_VALIDITY",
+      "metric_name": "Finite, supported, in-range temperature values",
+      "cohort": "Deterministic winners W before row-validity filtering",
+      "numerator": 9710,
+      "denominator": 9960,
+      "value": 0.9748995983935743,
+      "threshold": 1.0,
+      "severity": "BLOCK",
+      "status": "FAIL",
+      "measure": "valid_values",
+      "dataset_id": "research-telemetry-v1-before",
+      "dataset_version": "research-telemetry-v1",
+      "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271"
+    }
+  ],
+  "defect_category_counts": [
+    {
+      "defect_code": "DUPLICATE_VERSION",
+      "defect_count": 200
+    },
+    {
+      "defect_code": "EVENT_TIME_PARSE",
+      "defect_count": 40
+    },
+    {
+      "defect_code": "INGEST_TIME_PARSE",
+      "defect_count": 20
+    },
+    {
+      "defect_code": "INVALID_RECORD_ID",
+      "defect_count": 20
+    },
+    {
+      "defect_code": "LATE_RETAINED",
+      "defect_count": 200
+    },
+    {
+      "defect_code": "NUMERIC_INVALID",
+      "defect_count": 170
+    },
+    {
+      "defect_code": "PARSE_FAILURE",
+      "defect_count": 5
+    },
+    {
+      "defect_code": "REQUIRED_FIELD_MISSING",
+      "defect_count": 110
+    },
+    {
+      "defect_code": "TIME_ORDER",
+      "defect_count": 30
+    },
+    {
+      "defect_code": "UNIT_UNSUPPORTED",
+      "defect_count": 40
+    },
+    {
+      "defect_code": "UNKNOWN_SENSOR",
+      "defect_count": 30
+    },
+    {
+      "defect_code": "VALUE_OUT_OF_RANGE",
+      "defect_count": 40
+    }
+  ],
+  "hashes": {
+    "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+    "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+    "code_sha256": "a1172f27464d679c0ab1d14cee0b0158239c52702e68f8eb04fa7c4321305e40"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "run_id": "24a7e19d-42f1-4779-a5a6-8ceaea3c2271",
+  "generated_at_utc": "2026-10-09T08:35:56.664571+00:00",
+  "as_of": "2026-02-09T00:00:00Z",
+  "store_id": "bd-g01-objects",
+  "operator_role": "B / Quality",
+  "operator_name": null,
+  "reviewer_role": "E / Release (independent QA agreement and coverage check after T3)",
+  "reviewer_name": null,
+  "review_status": "PENDING_PEER_REVIEW",
+  "input_manifest_path": "input/trusted_manifest.json",
+  "source_objects": [
+    {
+      "key": "observations_a.csv",
+      "bytes": 421028,
+      "records": 5000,
+      "sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea"
+    },
+    {
+      "key": "observations_b.jsonl",
+      "bytes": 1037439,
+      "records": 5205,
+      "sha256": "3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70"
+    },
+    {
+      "key": "qa_reference.csv",
+      "bytes": 1423,
+      "records": 100,
+      "sha256": "129463c2a4e63f2dabfa2a5dd31b92e4fe4858d2415d3c7ef495cc6c6d7b65c2"
+    },
+    {
+      "key": "sensors.csv",
+      "bytes": 256,
+      "records": 20,
+      "sha256": "02c390e127c37b9d12e9ca156eae23a450ad1ae037001cddd9651bb6516b9bde"
+    }
+  ],
+  "contract_version": "research-telemetry-v1",
+  "hashes": {
+    "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+    "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+    "code_sha256": "a1172f27464d679c0ab1d14cee0b0158239c52702e68f8eb04fa7c4321305e40"
+  },
+  "code_bundle_files": [
+    {
+      "path": "code/quality.sql",
+      "sha256": "51571d6ef2a61c2af4172e8f3ee52e72435fa4eb1d2ddcd0d691c7d8aef33473"
+    },
+    {
+      "path": "code/run_quality.py",
+      "sha256": "f7f192dd4878f3974a112d704ebaf85f255cc5be751c7b498b439c6c2b4609a6"
+    },
+    {
+      "path": "code/typed.sql",
+      "sha256": "29947780047760c0b6e463e99647a725561fa9bb8b2239511701c5c354249ad9"
+    }
+  ],
+  "command": [
+    "code/run_quality.py"
+  ],
+  "measurement_status": "MEASURED",
+  "counts": {
+    "raw_records": 10205,
+    "parse_failures": 5,
+    "parsed_intake_records": 10200,
+    "key_rejected_records": 40,
+    "key_eligible_records": 10160,
+    "winners_before_validity": 9960,
+    "duplicate_excess": 200,
+    "parsed_intake_required_failures": 130,
+    "late_winners_before_curation": 200
+  },
+  "outputs": [
+    "outputs/t2_quality/quality_before.json",
+    "outputs/t2_quality/metrics.csv",
+    "outputs/t2_quality/defects.csv",
+    "reports/T2_report.md"
+  ],
+  "output_artifacts": [
+    {
+      "path": "outputs/t2_quality/quality_before.json",
+      "sha256": "bcfcace7c7187dbd5f34b8f8d8a5cd3a346fa5947900f79324d30b141fdabf1d"
+    },
+    {
+      "path": "outputs/t2_quality/metrics.csv",
+      "sha256": "4c365618cafdfefb3ecfaa5806b34cb10b89c9034d8a5a611d31fc316427aae7"
+    },
+    {
+      "path": "outputs/t2_quality/defects.csv",
+      "sha256": "57b4d63f49fda74f092e5053a8e36d353757e23725be132942583a3cb16e1efd"
+    },
+    {
+      "path": "reports/T2_report.md",
+      "sha256": "6652672ba9a650d5d9d34492e3be170c415140cb7f95be23a410bac1f157e5af"
+    }
+  ]
+}
