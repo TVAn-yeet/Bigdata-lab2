@@ -1,0 +1,63 @@
+{
+  "check_id": "C05",
+  "description": "Residual quality metrics and reference agreement on curated candidate",
+  "metrics": {
+    "required_completeness": {
+      "numerator": 9610,
+      "denominator": 9610,
+      "value": 1.0,
+      "threshold": 1.0,
+      "status": "PASS"
+    },
+    "business_key_uniqueness": {
+      "numerator": 9610,
+      "denominator": 9610,
+      "value": 1.0,
+      "threshold": 1.0,
+      "status": "PASS"
+    },
+    "value_validity": {
+      "numerator": 9610,
+      "denominator": 9610,
+      "value": 1.0,
+      "threshold": 1.0,
+      "status": "PASS"
+    },
+    "referential_consistency": {
+      "numerator": 9610,
+      "denominator": 9610,
+      "value": 1.0,
+      "threshold": 1.0,
+      "status": "PASS"
+    },
+    "temporal_consistency": {
+      "numerator": 9610,
+      "denominator": 9610,
+      "value": 1.0,
+      "threshold": 1.0,
+      "status": "PASS"
+    },
+    "timeliness": {
+      "numerator": 9410,
+      "denominator": 9610,
+      "value": 0.9792,
+      "threshold": 0.95,
+      "status": "PASS"
+    },
+    "qa_coverage": {
+      "numerator": 100,
+      "denominator": 100,
+      "value": 1.0,
+      "threshold": 1.0,
+      "status": "PASS"
+    },
+    "qa_agreement": {
+      "numerator": 95,
+      "denominator": 100,
+      "value": 0.95,
+      "threshold": 0.95,
+      "status": "PASS"
+    }
+  },
+  "status": "PASS"
+}

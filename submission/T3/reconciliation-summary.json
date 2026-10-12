@@ -1,0 +1,9 @@
+{
+  "n_raw": 10205,
+  "n_curated": 9610,
+  "n_quarantine": 395,
+  "n_duplicates": 200,
+  "sum_outputs": 10205,
+  "conservation_delta": 0,
+  "status": "CONSERVED"
+}
