@@ -1,0 +1,62 @@
+{
+  "run_id": "5e6b036d-9d0b-47f0-9536-d5e37d8a2ac0",
+  "generated_at_utc": "2026-10-12T02:17:59.478138+00:00",
+  "dataset_version": "research-telemetry-v1",
+  "operator_role": "B / Quality",
+  "operator_name": null,
+  "reviewer_role": "E / Release (independent QA agreement and coverage check)",
+  "reviewer_name": null,
+  "review_status": "PENDING_PEER_REVIEW",
+  "candidate_path": "submission/T3/curated.parquet",
+  "candidate_sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+  "quarantine_path": "submission/T3/quarantine.csv",
+  "quarantine_sha256": "8ee1dd29d64917d9c623f9968cfc08466636e9fbe0692237069f707cc44f0ae8",
+  "duplicates_path": "submission/T3/duplicates.csv",
+  "duplicates_sha256": "3896923c3b630745ee9d1b97d6d383009348bf2012a5277baf30514ea8a5fdb9",
+  "counts": {
+    "curated_records": 9610,
+    "remaining_late_observations": 200,
+    "chronologically_valid_records": 9610
+  },
+  "dispositions": {
+    "raw_records": 10205,
+    "curated_records": 9610,
+    "quarantined_records": 395,
+    "duplicate_versions": 200,
+    "retained_fraction": 0.9416952474277315,
+    "rejected_fraction": 0.03870651641352278,
+    "duplicate_fraction": 0.019598236158745713,
+    "not_in_candidate_fraction": 0.0583047525722685,
+    "physical_partition_count": 10205,
+    "partition_matches_raw": true
+  },
+  "outputs": [
+    "outputs/t5_baseline/quality_after.json",
+    "outputs/t5_baseline/before_after.csv",
+    "outputs/t5_baseline/before_after.svg",
+    "outputs/t5_baseline/metrics.csv"
+  ],
+  "output_artifacts": [
+    {
+      "path": "outputs/t5_baseline/quality_after.json",
+      "sha256": "1e3573c0e4da5a48cb9e4e21364de6ba5beec12f9ca0848b9a9bbf7ab4710ed6"
+    },
+    {
+      "path": "outputs/t5_baseline/before_after.csv",
+      "sha256": "36d0813b3a30b34a894ab289e26a8dfe5be21608056a45f4fdeae00c2db21748"
+    },
+    {
+      "path": "outputs/t5_baseline/before_after.svg",
+      "sha256": "aac88a18524c17632398de1265e02a86131ff7e19966853dd57680cd43068ee8"
+    },
+    {
+      "path": "outputs/t5_baseline/metrics.csv",
+      "sha256": "b08882f7e9e05ed33fda0856ffa42fe5eb4f42bf69382e33929e1ba7cc913f6c"
+    }
+  ],
+  "hashes": {
+    "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+    "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+    "code_sha256": "a1172f27464d679c0ab1d14cee0b0158239c52702e68f8eb04fa7c4321305e40"
+  }
+}

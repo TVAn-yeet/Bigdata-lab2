@@ -1,0 +1,39 @@
+{
+  "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+  "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+  "artifacts": [
+    {
+      "name": "curated.parquet",
+      "format": "parquet",
+      "records": 9610,
+      "bytes": 209735,
+      "sha256": "cbb06cd37a0b013bf547509b59b343e37eb8a3ad0729be872f7e4fe3cd350e97",
+      "classification": "analyst-release"
+    },
+    {
+      "name": "quarantine.csv",
+      "format": "csv",
+      "records": 395,
+      "bytes": 179641,
+      "sha256": "8ee1dd29d64917d9c623f9968cfc08466636e9fbe0692237069f707cc44f0ae8",
+      "classification": "restricted-staging"
+    },
+    {
+      "name": "duplicates.csv",
+      "format": "csv",
+      "records": 200,
+      "bytes": 107886,
+      "sha256": "3896923c3b630745ee9d1b97d6d383009348bf2012a5277baf30514ea8a5fdb9",
+      "classification": "restricted-staging"
+    }
+  ],
+  "reconciliation": {
+    "n_raw": 10205,
+    "n_curated": 9610,
+    "n_quarantine": 395,
+    "n_duplicates": 200,
+    "sum_outputs": 10205,
+    "conservation_delta": 0,
+    "status": "CONSERVED"
+  }
+}

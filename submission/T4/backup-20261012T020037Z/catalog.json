@@ -1,0 +1,94 @@
+{
+  "catalog_version": "1.0.0",
+  "generated_at": "2026-10-11T16:25:00Z",
+  "datasets": [
+    {
+      "dataset_id": "raw_observations_a",
+      "title": "Raw Environmental Observations Stream A",
+      "purpose": "Ingestion and staging of sensor observations from CSV source",
+      "owner": "Data Ingestion Team",
+      "steward": "Research Data Steward",
+      "classification": "Internal",
+      "allowed_use": "Aggregated educational, synthetic teaching use, and research",
+      "location": "s3://research-raw/lab2/inputs/batch-01/observations_a.csv",
+      "schema_version": "1.0.0",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "input_manifest_sha256": "a1b2c3d4e5f67890123456789abcdef0123456789abcdef0123456789abcdef0",
+      "code_sha256": "f9e8d7c6b5a43210fedcba9876543210fedcba9876543210fedcba9876543210",
+      "columns": [
+        {"name": "record_id", "type": "STRING", "unit": null, "nullable": false, "description": "Unique identifier"},
+        {"name": "sensor_id", "type": "STRING", "unit": null, "nullable": false, "description": "Sensor identifier"},
+        {"name": "event_time", "type": "TIMESTAMP", "unit": "ISO8601", "nullable": false, "description": "Event timestamp"},
+        {"name": "reading", "type": "DOUBLE", "unit": "VARIES", "nullable": true, "description": "Raw reading value"},
+        {"name": "operator_email", "type": "STRING", "unit": null, "nullable": true, "description": "Operator identifier"}
+      ],
+      "as_of": "2026-10-11T00:00:00Z",
+      "row_count": 5100,
+      "retention": {"policy": "RAW_INPUT_RETENTION", "ttl_days": 30}
+    },
+    {
+      "dataset_id": "raw_observations_b",
+      "title": "Raw Environmental Observations Stream B",
+      "purpose": "Ingestion and staging of sensor observations from JSONL source",
+      "owner": "Data Ingestion Team",
+      "steward": "Research Data Steward",
+      "classification": "Internal",
+      "allowed_use": "Aggregated educational, synthetic teaching use, and research",
+      "location": "s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl",
+      "schema_version": "1.0.0",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "input_manifest_sha256": "a1b2c3d4e5f67890123456789abcdef0123456789abcdef0123456789abcdef0",
+      "code_sha256": "f9e8d7c6b5a43210fedcba9876543210fedcba9876543210fedcba9876543210",
+      "columns": [
+        {"name": "record_id", "type": "STRING", "unit": null, "nullable": false, "description": "Unique identifier"},
+        {"name": "sensor_id", "type": "STRING", "unit": null, "nullable": false, "description": "Sensor identifier"},
+        {"name": "event_time", "type": "TIMESTAMP", "unit": "ISO8601", "nullable": false, "description": "Event timestamp"},
+        {"name": "reading", "type": "DOUBLE", "unit": "VARIES", "nullable": true, "description": "Raw reading value"}
+      ],
+      "as_of": "2026-10-11T00:00:00Z",
+      "row_count": 5105,
+      "retention": {"policy": "RAW_INPUT_RETENTION", "ttl_days": 30}
+    },
+    {
+      "dataset_id": "curated_candidate",
+      "title": "Curated Observation Candidate Data",
+      "purpose": "Cleaned, standardized, and deduplicated sensor observations for research",
+      "owner": "Data Engineering Team",
+      "steward": "Data Quality Manager",
+      "classification": "Internal",
+      "allowed_use": "Analytics and downstream machine learning modeling",
+      "location": "s3://research-release/lab2/curated/batch-01/",
+      "schema_version": "1.0.0",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "columns": [
+        {"name": "record_id", "type": "STRING", "unit": null, "nullable": false, "description": "Unique identifier"},
+        {"name": "sensor_id", "type": "STRING", "unit": null, "nullable": false, "description": "Sensor identifier"},
+        {"name": "event_time", "type": "TIMESTAMP", "unit": "ISO8601", "nullable": false, "description": "Event timestamp"},
+        {"name": "reading_celsius", "type": "DOUBLE", "unit": "CELSIUS", "nullable": false, "description": "Standardized reading in Celsius [-30, 60]"},
+        {"name": "lag_seconds", "type": "BIGINT", "unit": "SECONDS", "nullable": false, "description": "Latency between event and ingest"}
+      ],
+      "as_of": "2026-10-11T00:00:00Z",
+      "row_count": 9850,
+      "retention": {"policy": "RELEASE_RETENTION", "ttl_days": 90}
+    },
+    {
+      "dataset_id": "quarantine_collection",
+      "title": "Quarantine Isolated Records",
+      "purpose": "Isolation of records violating contract schema or quality rules",
+      "owner": "Data Governance Team",
+      "steward": "Compliance Manager",
+      "classification": "Restricted",
+      "allowed_use": "Audit and error analysis only",
+      "location": "s3://research-raw/lab2/quarantine/batch-01/",
+      "schema_version": "1.0.0",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "columns": [
+        {"name": "record_id", "type": "STRING", "unit": null, "nullable": true, "description": "Identifier if parseable"},
+        {"name": "error_reason", "type": "STRING", "unit": null, "nullable": false, "description": "Violation description"}
+      ],
+      "as_of": "2026-10-11T00:00:00Z",
+      "row_count": 355,
+      "retention": {"policy": "QUARANTINE_RETENTION", "ttl_days": 7}
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"test": "put_object", "result": "SUCCESS", "http_status": 200, "key": "lab2/permission-tests/permission-check-20261012T044204Z.txt"}
+{"test": "get_verify", "result": "PASS", "sha256": "2273b62c10a46a6a07e26dda2a86bf389f3ece2da4232e1b41da0e3d63048560"}
+{"test": "delete_cleanup", "result": "SUCCESS", "http_status": 204}

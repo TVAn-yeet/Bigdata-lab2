@@ -1,94 +1,576 @@
 {
-  "catalog_version": "1.0.0",
-  "generated_at": "2026-10-11T16:25:00Z",
+  "catalog_version": 1,
+  "generated_at_utc": "2026-10-12T02:03:32.446536+00:00",
+  "publication_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
   "datasets": [
     {
       "dataset_id": "raw_observations_a",
-      "title": "Raw Environmental Observations Stream A",
-      "purpose": "Ingestion and staging of sensor observations from CSV source",
-      "owner": "Data Ingestion Team",
-      "steward": "Research Data Steward",
-      "classification": "Internal",
-      "allowed_use": "Aggregated educational, synthetic teaching use, and research",
+      "title": "Raw CSV telemetry observations",
+      "purpose": "Source input for the research telemetry teaching pipeline.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "Restricted: contains raw payload and synthetic operator contact fields.",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
       "location": "s3://research-raw/lab2/inputs/batch-01/observations_a.csv",
-      "schema_version": "1.0.0",
-      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
-      "input_manifest_sha256": "a1b2c3d4e5f67890123456789abcdef0123456789abcdef0123456789abcdef0",
-      "code_sha256": "f9e8d7c6b5a43210fedcba9876543210fedcba9876543210fedcba9876543210",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 5000,
       "columns": [
-        {"name": "record_id", "type": "STRING", "unit": null, "nullable": false, "description": "Unique identifier"},
-        {"name": "sensor_id", "type": "STRING", "unit": null, "nullable": false, "description": "Sensor identifier"},
-        {"name": "event_time", "type": "TIMESTAMP", "unit": "ISO8601", "nullable": false, "description": "Event timestamp"},
-        {"name": "reading", "type": "DOUBLE", "unit": "VARIES", "nullable": true, "description": "Raw reading value"},
-        {"name": "operator_email", "type": "STRING", "unit": null, "nullable": true, "description": "Operator identifier"}
+        {
+          "name": "record_id",
+          "type": "string",
+          "meaning": "Source observation identifier",
+          "nullable": true
+        },
+        {
+          "name": "sensor_id",
+          "type": "string",
+          "meaning": "Sensor identifier",
+          "nullable": true
+        },
+        {
+          "name": "event_time",
+          "type": "string",
+          "meaning": "Original event timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ingest_time",
+          "type": "string",
+          "meaning": "Original ingestion timestamp",
+          "nullable": true
+        },
+        {
+          "name": "reading",
+          "type": "string",
+          "meaning": "Original temperature reading",
+          "nullable": true
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "meaning": "Original temperature unit",
+          "nullable": true
+        },
+        {
+          "name": "operator_email",
+          "type": "string",
+          "meaning": "Synthetic operator contact field; restricted",
+          "nullable": true
+        }
       ],
-      "as_of": "2026-10-11T00:00:00Z",
-      "row_count": 5100,
-      "retention": {"policy": "RAW_INPUT_RETENTION", "ttl_days": 30}
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json",
+      "retention": {
+        "policy": "raw-30d",
+        "ttl_days": 30,
+        "time_basis": "retrieved_at_utc in input/input_inventory.json",
+        "physical_deletion": "not performed by this catalog"
+      },
+      "provenance": {
+        "source_sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea",
+        "source_bytes": 421028,
+        "manifest": "Lab2-datasets/manifests/source_manifest.json",
+        "manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+        "trusted_manifest": "input/trusted_manifest.json",
+        "input_key": "observations_a.csv"
+      }
     },
     {
       "dataset_id": "raw_observations_b",
-      "title": "Raw Environmental Observations Stream B",
-      "purpose": "Ingestion and staging of sensor observations from JSONL source",
-      "owner": "Data Ingestion Team",
-      "steward": "Research Data Steward",
-      "classification": "Internal",
-      "allowed_use": "Aggregated educational, synthetic teaching use, and research",
+      "title": "Raw JSONL telemetry observations",
+      "purpose": "Source input for the research telemetry teaching pipeline.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "Restricted: contains raw payload and synthetic operator contact fields.",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
       "location": "s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl",
-      "schema_version": "1.0.0",
-      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
-      "input_manifest_sha256": "a1b2c3d4e5f67890123456789abcdef0123456789abcdef0123456789abcdef0",
-      "code_sha256": "f9e8d7c6b5a43210fedcba9876543210fedcba9876543210fedcba9876543210",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 5205,
       "columns": [
-        {"name": "record_id", "type": "STRING", "unit": null, "nullable": false, "description": "Unique identifier"},
-        {"name": "sensor_id", "type": "STRING", "unit": null, "nullable": false, "description": "Sensor identifier"},
-        {"name": "event_time", "type": "TIMESTAMP", "unit": "ISO8601", "nullable": false, "description": "Event timestamp"},
-        {"name": "reading", "type": "DOUBLE", "unit": "VARIES", "nullable": true, "description": "Raw reading value"}
+        {
+          "name": "record_id",
+          "type": "string",
+          "meaning": "Source observation identifier",
+          "nullable": true
+        },
+        {
+          "name": "sensor_id",
+          "type": "string",
+          "meaning": "Sensor identifier",
+          "nullable": true
+        },
+        {
+          "name": "event_time",
+          "type": "string",
+          "meaning": "Original event timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ingest_time",
+          "type": "string",
+          "meaning": "Original ingestion timestamp",
+          "nullable": true
+        },
+        {
+          "name": "reading",
+          "type": "string",
+          "meaning": "Original temperature reading",
+          "nullable": true
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "meaning": "Original temperature unit",
+          "nullable": true
+        },
+        {
+          "name": "operator_email",
+          "type": "string",
+          "meaning": "Synthetic operator contact field; restricted",
+          "nullable": true
+        }
       ],
-      "as_of": "2026-10-11T00:00:00Z",
-      "row_count": 5105,
-      "retention": {"policy": "RAW_INPUT_RETENTION", "ttl_days": 30}
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json",
+      "retention": {
+        "policy": "raw-30d",
+        "ttl_days": 30,
+        "time_basis": "retrieved_at_utc in input/input_inventory.json",
+        "physical_deletion": "not performed by this catalog"
+      },
+      "provenance": {
+        "source_sha256": "3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70",
+        "source_bytes": 1037439,
+        "manifest": "Lab2-datasets/manifests/source_manifest.json",
+        "manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+        "trusted_manifest": "input/trusted_manifest.json",
+        "input_key": "observations_b.jsonl"
+      }
+    },
+    {
+      "dataset_id": "qa_reference",
+      "title": "Reference temperatures for quality checks",
+      "purpose": "Source input for the research telemetry teaching pipeline.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "Internal: synthetic QA reference data.",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
+      "location": "s3://research-raw/lab2/inputs/batch-01/qa_reference.csv",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 100,
+      "columns": [
+        {
+          "name": "record_id",
+          "type": "string",
+          "meaning": "Observation identifier",
+          "nullable": false
+        },
+        {
+          "name": "reference_c",
+          "type": "string",
+          "meaning": "Reference temperature in Celsius",
+          "nullable": false,
+          "unit": "\u00b0C"
+        }
+      ],
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json",
+      "retention": {
+        "policy": "raw-30d",
+        "ttl_days": 30,
+        "time_basis": "retrieved_at_utc in input/input_inventory.json",
+        "physical_deletion": "not performed by this catalog"
+      },
+      "provenance": {
+        "source_sha256": "129463c2a4e63f2dabfa2a5dd31b92e4fe4858d2415d3c7ef495cc6c6d7b65c2",
+        "source_bytes": 1423,
+        "manifest": "Lab2-datasets/manifests/source_manifest.json",
+        "manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+        "trusted_manifest": "input/trusted_manifest.json",
+        "input_key": "qa_reference.csv"
+      }
+    },
+    {
+      "dataset_id": "sensor_reference",
+      "title": "Sensor-to-site reference mapping",
+      "purpose": "Source input for the research telemetry teaching pipeline.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "Internal: synthetic sensor reference data.",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
+      "location": "s3://research-raw/lab2/inputs/batch-01/sensors.csv",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 20,
+      "columns": [
+        {
+          "name": "sensor_id",
+          "type": "string",
+          "meaning": "Sensor identifier",
+          "nullable": false
+        },
+        {
+          "name": "site",
+          "type": "string",
+          "meaning": "Site associated with the sensor",
+          "nullable": false
+        }
+      ],
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json",
+      "retention": {
+        "policy": "raw-30d",
+        "ttl_days": 30,
+        "time_basis": "retrieved_at_utc in input/input_inventory.json",
+        "physical_deletion": "not performed by this catalog"
+      },
+      "provenance": {
+        "source_sha256": "02c390e127c37b9d12e9ca156eae23a450ad1ae037001cddd9651bb6516b9bde",
+        "source_bytes": 256,
+        "manifest": "Lab2-datasets/manifests/source_manifest.json",
+        "manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+        "trusted_manifest": "input/trusted_manifest.json",
+        "input_key": "sensors.csv"
+      }
     },
     {
       "dataset_id": "curated_candidate",
-      "title": "Curated Observation Candidate Data",
-      "purpose": "Cleaned, standardized, and deduplicated sensor observations for research",
-      "owner": "Data Engineering Team",
-      "steward": "Data Quality Manager",
-      "classification": "Internal",
-      "allowed_use": "Analytics and downstream machine learning modeling",
-      "location": "s3://research-release/lab2/curated/batch-01/",
-      "schema_version": "1.0.0",
-      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "title": "curated.parquet",
+      "purpose": "Validated, deduplicated temperature observations standardized to Celsius.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "analyst-release-candidate",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
+      "location": "file://submission/T3/curated.parquet",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 9610,
       "columns": [
-        {"name": "record_id", "type": "STRING", "unit": null, "nullable": false, "description": "Unique identifier"},
-        {"name": "sensor_id", "type": "STRING", "unit": null, "nullable": false, "description": "Sensor identifier"},
-        {"name": "event_time", "type": "TIMESTAMP", "unit": "ISO8601", "nullable": false, "description": "Event timestamp"},
-        {"name": "reading_celsius", "type": "DOUBLE", "unit": "CELSIUS", "nullable": false, "description": "Standardized reading in Celsius [-30, 60]"},
-        {"name": "lag_seconds", "type": "BIGINT", "unit": "SECONDS", "nullable": false, "description": "Latency between event and ingest"}
+        {
+          "name": "record_id",
+          "type": "VARCHAR",
+          "meaning": "Deduplicated observation identifier",
+          "nullable": false
+        },
+        {
+          "name": "sensor_id",
+          "type": "VARCHAR",
+          "meaning": "Normalized sensor identifier",
+          "nullable": false
+        },
+        {
+          "name": "site",
+          "type": "VARCHAR",
+          "meaning": "Sensor site from reference data",
+          "nullable": false
+        },
+        {
+          "name": "event_time_utc",
+          "type": "TIMESTAMP",
+          "meaning": "Event time normalized to UTC",
+          "nullable": false
+        },
+        {
+          "name": "ingest_time_utc",
+          "type": "TIMESTAMP",
+          "meaning": "Ingestion time normalized to UTC",
+          "nullable": false
+        },
+        {
+          "name": "temperature_c",
+          "type": "DECIMAL(8,2)",
+          "meaning": "Temperature standardized to Celsius",
+          "nullable": false,
+          "unit": "\u00b0C"
+        },
+        {
+          "name": "is_late",
+          "type": "BOOLEAN",
+          "meaning": "Whether ingestion exceeded the late threshold",
+          "nullable": false
+        },
+        {
+          "name": "source_object",
+          "type": "VARCHAR",
+          "meaning": "Source object URI",
+          "nullable": false
+        },
+        {
+          "name": "source_row",
+          "type": "BIGINT",
+          "meaning": "Source row or line number",
+          "nullable": false
+        },
+        {
+          "name": "source_sha256",
+          "type": "VARCHAR",
+          "meaning": "SHA-256 of source object",
+          "nullable": false
+        }
       ],
-      "as_of": "2026-10-11T00:00:00Z",
-      "row_count": 9850,
-      "retention": {"policy": "RELEASE_RETENTION", "ttl_days": 90}
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json; evidence/T3/C05/residual_quality_check.json",
+      "retention": {
+        "policy": "candidate-90d",
+        "ttl_days": 90,
+        "time_basis": "pipeline_completion_utc, to be recorded by a real run",
+        "physical_deletion": "not performed",
+        "hold_and_dependency_checks_required": true
+      },
+      "provenance": {
+        "artifact_sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+        "artifact_bytes": 209731,
+        "candidate_manifest": "submission/T3/candidate_manifest.json",
+        "candidate_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+        "reconciliation": "submission/T3/reconciliation-summary.json"
+      }
     },
     {
       "dataset_id": "quarantine_collection",
-      "title": "Quarantine Isolated Records",
-      "purpose": "Isolation of records violating contract schema or quality rules",
-      "owner": "Data Governance Team",
-      "steward": "Compliance Manager",
-      "classification": "Restricted",
-      "allowed_use": "Audit and error analysis only",
-      "location": "s3://research-raw/lab2/quarantine/batch-01/",
-      "schema_version": "1.0.0",
-      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "title": "quarantine.csv",
+      "purpose": "Records rejected from the curated candidate with recorded validation reasons.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "restricted-staging",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
+      "location": "file://submission/T3/quarantine.csv",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 395,
       "columns": [
-        {"name": "record_id", "type": "STRING", "unit": null, "nullable": true, "description": "Identifier if parseable"},
-        {"name": "error_reason", "type": "STRING", "unit": null, "nullable": false, "description": "Violation description"}
+        {
+          "name": "source_object",
+          "type": "string",
+          "meaning": "Source object URI",
+          "nullable": false
+        },
+        {
+          "name": "source_row",
+          "type": "integer",
+          "meaning": "Source row or line number",
+          "nullable": false
+        },
+        {
+          "name": "source_sha256",
+          "type": "string",
+          "meaning": "SHA-256 of source object",
+          "nullable": false
+        },
+        {
+          "name": "record_id",
+          "type": "string",
+          "meaning": "Observed record identifier",
+          "nullable": true
+        },
+        {
+          "name": "sensor_id",
+          "type": "string",
+          "meaning": "Observed sensor identifier",
+          "nullable": true
+        },
+        {
+          "name": "event_time",
+          "type": "string",
+          "meaning": "Original event timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ingest_time",
+          "type": "string",
+          "meaning": "Original ingestion timestamp",
+          "nullable": true
+        },
+        {
+          "name": "reading",
+          "type": "string",
+          "meaning": "Original temperature reading",
+          "nullable": true
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "meaning": "Original temperature unit",
+          "nullable": true
+        },
+        {
+          "name": "operator_email",
+          "type": "string",
+          "meaning": "Synthetic operator contact field; restricted",
+          "nullable": true
+        },
+        {
+          "name": "raw_payload",
+          "type": "string",
+          "meaning": "Original record payload; restricted",
+          "nullable": true
+        },
+        {
+          "name": "primary_reason",
+          "type": "string",
+          "meaning": "Primary quarantine reason",
+          "nullable": false
+        },
+        {
+          "name": "all_reasons",
+          "type": "string",
+          "meaning": "All detected quarantine reasons",
+          "nullable": false
+        }
       ],
-      "as_of": "2026-10-11T00:00:00Z",
-      "row_count": 355,
-      "retention": {"policy": "QUARANTINE_RETENTION", "ttl_days": 7}
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json; evidence/T3/C01/conservation_check.json",
+      "retention": {
+        "policy": "restricted-staging-7d",
+        "ttl_days": 7,
+        "time_basis": "pipeline_completion_utc, to be recorded by a real run",
+        "physical_deletion": "not performed",
+        "hold_and_dependency_checks_required": true
+      },
+      "provenance": {
+        "artifact_sha256": "8ee1dd29d64917d9c623f9968cfc08466636e9fbe0692237069f707cc44f0ae8",
+        "artifact_bytes": 179641,
+        "candidate_manifest": "submission/T3/candidate_manifest.json",
+        "candidate_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+        "reconciliation": "submission/T3/reconciliation-summary.json"
+      }
+    },
+    {
+      "dataset_id": "duplicate_versions",
+      "title": "duplicates.csv",
+      "purpose": "Superseded versions of records removed by deterministic deduplication.",
+      "owner": "Big Data Lab 2 \u2014 group bd-g01",
+      "steward": "Role C / Curation",
+      "classification": "restricted-staging",
+      "allowed_use": "Synthetic teaching data only; no real-world operational use.",
+      "location": "file://submission/T3/duplicates.csv",
+      "schema_version": "research-telemetry-v1",
+      "as_of": "2026-02-09T00:00:00Z",
+      "row_count": 200,
+      "columns": [
+        {
+          "name": "source_object",
+          "type": "string",
+          "meaning": "Source object URI",
+          "nullable": false
+        },
+        {
+          "name": "source_row",
+          "type": "integer",
+          "meaning": "Superseded source row or line number",
+          "nullable": false
+        },
+        {
+          "name": "source_sha256",
+          "type": "string",
+          "meaning": "SHA-256 of source object",
+          "nullable": false
+        },
+        {
+          "name": "record_id",
+          "type": "string",
+          "meaning": "Duplicate business-key identifier",
+          "nullable": false
+        },
+        {
+          "name": "sensor_id",
+          "type": "string",
+          "meaning": "Sensor identifier",
+          "nullable": true
+        },
+        {
+          "name": "event_time",
+          "type": "string",
+          "meaning": "Original event timestamp",
+          "nullable": true
+        },
+        {
+          "name": "ingest_time",
+          "type": "string",
+          "meaning": "Original ingestion timestamp",
+          "nullable": true
+        },
+        {
+          "name": "reading",
+          "type": "string",
+          "meaning": "Original temperature reading",
+          "nullable": true
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "meaning": "Original temperature unit",
+          "nullable": true
+        },
+        {
+          "name": "operator_email",
+          "type": "string",
+          "meaning": "Synthetic operator contact field; restricted",
+          "nullable": true
+        },
+        {
+          "name": "winner_source_object",
+          "type": "string",
+          "meaning": "Winning source object URI",
+          "nullable": false
+        },
+        {
+          "name": "winner_source_row",
+          "type": "integer",
+          "meaning": "Winning source row or line number",
+          "nullable": false
+        },
+        {
+          "name": "winner_source_sha256",
+          "type": "string",
+          "meaning": "Winning source SHA-256",
+          "nullable": false
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "meaning": "Reason this version was superseded",
+          "nullable": false
+        },
+        {
+          "name": "raw_payload",
+          "type": "string",
+          "meaning": "Original record payload; restricted",
+          "nullable": true
+        }
+      ],
+      "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+      "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+      "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+      "quality_report": "submission/T3/t3-summary.json; evidence/T3/C01/conservation_check.json",
+      "retention": {
+        "policy": "restricted-staging-7d",
+        "ttl_days": 7,
+        "time_basis": "pipeline_completion_utc, to be recorded by a real run",
+        "physical_deletion": "not performed",
+        "hold_and_dependency_checks_required": true
+      },
+      "provenance": {
+        "artifact_sha256": "3896923c3b630745ee9d1b97d6d383009348bf2012a5277baf30514ea8a5fdb9",
+        "artifact_bytes": 107886,
+        "candidate_manifest": "submission/T3/candidate_manifest.json",
+        "candidate_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+        "reconciliation": "submission/T3/reconciliation-summary.json"
+      }
     }
   ]
 }

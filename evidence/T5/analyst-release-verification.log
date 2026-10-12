@@ -1,0 +1,6 @@
+{"test": "fetch_release_manifest", "result": "PASS", "key": "lab2/releases/t5-20261012T044532Z/release_manifest.json", "sha256": "477bdd95dddd10cf663a05c5b663593c21b269949b7c9791134defc4bf4a6dfa", "release_id": "t5-20261012T044532Z"}
+{"test": "analyst_artifact_verification", "result": "PASS", "key": "lab2/releases/t5-20261012T044532Z/artifacts/curated.parquet", "sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4", "bytes": 209731, "rows": 9610}
+{"test": "analyst_artifact_verification", "result": "PASS", "key": "lab2/releases/t5-20261012T044532Z/metadata/candidate_manifest.json", "sha256": "8b378618569c778e3c56c59cc0ac4583168c8a720e33ba61dc12c310d9dc10b9", "bytes": 1127}
+{"test": "analyst_artifact_verification", "result": "PASS", "key": "lab2/releases/t5-20261012T044532Z/metadata/owner-review.json", "sha256": "5b68fe5371da75ce4e93443937c00b8666db7376c123153b96de295f8d74d23a", "bytes": 638}
+{"test": "analyst_artifact_verification", "result": "PASS", "key": "lab2/releases/t5-20261012T044532Z/evidence/replay-record.json", "sha256": "03a42d090ee1ee5e8beedea2a0e486a2f9cab02593dcafebb6842198434f3b49", "bytes": 1175}
+{"test": "analyst_release_verification", "result": "PASS", "artifact_count": 4}

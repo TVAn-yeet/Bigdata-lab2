@@ -1,0 +1,17 @@
+{
+  "run_id": "a00c13b6-1472-400b-bacc-9a0035d719a6",
+  "job": "bigdata-lab2/curate",
+  "start_time_utc": "2026-10-12T02:06:46Z",
+  "complete_time_utc": "2026-10-12T02:06:46Z",
+  "status": "COMPLETE",
+  "publication_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+  "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+  "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+  "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+  "output_sha256": {
+    "curated.parquet": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+    "quarantine.csv": "8ee1dd29d64917d9c623f9968cfc08466636e9fbe0692237069f707cc44f0ae8",
+    "duplicates.csv": "3896923c3b630745ee9d1b97d6d383009348bf2012a5277baf30514ea8a5fdb9"
+  },
+  "note": "Metadata records for existing local artifacts only. No curation execution or S3 publication was performed by this script."
+}

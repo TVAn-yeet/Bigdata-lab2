@@ -1,0 +1,128 @@
+{
+  "run_id": "5e6b036d-9d0b-47f0-9536-d5e37d8a2ac0",
+  "generated_at_utc": "2026-10-12T02:17:59.478138+00:00",
+  "as_of": "2026-02-09T00:00:00Z",
+  "store_id": "bd-g01-objects",
+  "operator_role": "B / Quality",
+  "operator_name": null,
+  "reviewer_role": "E / Release (independent QA agreement and coverage check after T3)",
+  "reviewer_name": null,
+  "review_status": "PENDING_PEER_REVIEW",
+  "input_manifest_path": "input/trusted_manifest.json",
+  "source_objects": [
+    {
+      "key": "observations_a.csv",
+      "bytes": 421028,
+      "records": 5000,
+      "sha256": "5157418915d867980fac8d84551a8b856bba1669ca2e33cef91a15ee82101aea"
+    },
+    {
+      "key": "observations_b.jsonl",
+      "bytes": 1037439,
+      "records": 5205,
+      "sha256": "3072ad0b725ea3763ad4d1a7c744465f997614892dd1460f9cd815094ec61b70"
+    },
+    {
+      "key": "qa_reference.csv",
+      "bytes": 1423,
+      "records": 100,
+      "sha256": "129463c2a4e63f2dabfa2a5dd31b92e4fe4858d2415d3c7ef495cc6c6d7b65c2"
+    },
+    {
+      "key": "sensors.csv",
+      "bytes": 256,
+      "records": 20,
+      "sha256": "02c390e127c37b9d12e9ca156eae23a450ad1ae037001cddd9651bb6516b9bde"
+    }
+  ],
+  "contract_version": "research-telemetry-v1",
+  "hashes": {
+    "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+    "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+    "code_sha256": "a1172f27464d679c0ab1d14cee0b0158239c52702e68f8eb04fa7c4321305e40"
+  },
+  "code_bundle_files": [
+    {
+      "path": "code/quality.sql",
+      "sha256": "51571d6ef2a61c2af4172e8f3ee52e72435fa4eb1d2ddcd0d691c7d8aef33473"
+    },
+    {
+      "path": "code/run_quality.py",
+      "sha256": "f7f192dd4878f3974a112d704ebaf85f255cc5be751c7b498b439c6c2b4609a6"
+    },
+    {
+      "path": "code/typed.sql",
+      "sha256": "29947780047760c0b6e463e99647a725561fa9bb8b2239511701c5c354249ad9"
+    }
+  ],
+  "command": [
+    "code/run_quality.py",
+    "--data-dir",
+    "input",
+    "--contract",
+    "contract/contract.json",
+    "--candidate",
+    "submission/T3/curated.parquet",
+    "--quarantine",
+    "submission/T3/quarantine.csv",
+    "--duplicates",
+    "submission/T3/duplicates.csv",
+    "--output-dir",
+    "outputs/t5_baseline",
+    "--report",
+    "reports/T5_baseline.md",
+    "--evidence-dir",
+    "evidence/T5/baseline"
+  ],
+  "measurement_status": "MEASURED",
+  "counts": {
+    "raw_records": 10205,
+    "parse_failures": 5,
+    "parsed_intake_records": 10200,
+    "key_rejected_records": 40,
+    "key_eligible_records": 10160,
+    "winners_before_validity": 9960,
+    "duplicate_excess": 200,
+    "parsed_intake_required_failures": 130,
+    "late_winners_before_curation": 200
+  },
+  "outputs": [
+    "outputs/t5_baseline/quality_before.json",
+    "outputs/t5_baseline/metrics.csv",
+    "outputs/t5_baseline/defects.csv",
+    "reports/T5_baseline.md",
+    "outputs/t5_baseline/quality_after.json",
+    "outputs/t5_baseline/before_after.csv",
+    "outputs/t5_baseline/before_after.svg"
+  ],
+  "output_artifacts": [
+    {
+      "path": "outputs/t5_baseline/quality_before.json",
+      "sha256": "8b708860be03f098a32a5b3fcd26309e3b3bb0a4e11137585b106c965e4ca9f5"
+    },
+    {
+      "path": "outputs/t5_baseline/metrics.csv",
+      "sha256": "b08882f7e9e05ed33fda0856ffa42fe5eb4f42bf69382e33929e1ba7cc913f6c"
+    },
+    {
+      "path": "outputs/t5_baseline/defects.csv",
+      "sha256": "57b4d63f49fda74f092e5053a8e36d353757e23725be132942583a3cb16e1efd"
+    },
+    {
+      "path": "reports/T5_baseline.md",
+      "sha256": "146e7ba1db6edacd7cfc2c8bcb6ed2fa6bde61f9de30da94fadd48594d5a270f"
+    },
+    {
+      "path": "outputs/t5_baseline/quality_after.json",
+      "sha256": "1e3573c0e4da5a48cb9e4e21364de6ba5beec12f9ca0848b9a9bbf7ab4710ed6"
+    },
+    {
+      "path": "outputs/t5_baseline/before_after.csv",
+      "sha256": "36d0813b3a30b34a894ab289e26a8dfe5be21608056a45f4fdeae00c2db21748"
+    },
+    {
+      "path": "outputs/t5_baseline/before_after.svg",
+      "sha256": "aac88a18524c17632398de1265e02a86131ff7e19966853dd57680cd43068ee8"
+    }
+  ]
+}

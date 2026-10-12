@@ -1,0 +1,64 @@
+{
+  "test_id": "M02",
+  "test_name": "Query datasets with restricted classification",
+  "executed_at_utc": "2026-10-12T02:12:14.903132+00:00",
+  "result": "PASS",
+  "matched_dataset_count": 4,
+  "datasets": [
+    {
+      "dataset_id": "raw_observations_a",
+      "classification": "Restricted: contains raw payload and synthetic operator contact fields.",
+      "row_count": 5000,
+      "location": "s3://research-raw/lab2/inputs/batch-01/observations_a.csv",
+      "retention": {
+        "policy": "raw-30d",
+        "ttl_days": 30,
+        "time_basis": "retrieved_at_utc in input/input_inventory.json",
+        "physical_deletion": "not performed by this catalog"
+      },
+      "allowed_use": "Synthetic teaching data only; no real-world operational use."
+    },
+    {
+      "dataset_id": "raw_observations_b",
+      "classification": "Restricted: contains raw payload and synthetic operator contact fields.",
+      "row_count": 5205,
+      "location": "s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl",
+      "retention": {
+        "policy": "raw-30d",
+        "ttl_days": 30,
+        "time_basis": "retrieved_at_utc in input/input_inventory.json",
+        "physical_deletion": "not performed by this catalog"
+      },
+      "allowed_use": "Synthetic teaching data only; no real-world operational use."
+    },
+    {
+      "dataset_id": "quarantine_collection",
+      "classification": "restricted-staging",
+      "row_count": 395,
+      "location": "file://submission/T3/quarantine.csv",
+      "retention": {
+        "policy": "restricted-staging-7d",
+        "ttl_days": 7,
+        "time_basis": "pipeline_completion_utc, to be recorded by a real run",
+        "physical_deletion": "not performed",
+        "hold_and_dependency_checks_required": true
+      },
+      "allowed_use": "Synthetic teaching data only; no real-world operational use."
+    },
+    {
+      "dataset_id": "duplicate_versions",
+      "classification": "restricted-staging",
+      "row_count": 200,
+      "location": "file://submission/T3/duplicates.csv",
+      "retention": {
+        "policy": "restricted-staging-7d",
+        "ttl_days": 7,
+        "time_basis": "pipeline_completion_utc, to be recorded by a real run",
+        "physical_deletion": "not performed",
+        "hold_and_dependency_checks_required": true
+      },
+      "allowed_use": "Synthetic teaching data only; no real-world operational use."
+    }
+  ],
+  "note": "This query reports catalog classifications; it does not enforce IAM or storage permissions."
+}

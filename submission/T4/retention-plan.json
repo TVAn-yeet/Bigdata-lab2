@@ -1,49 +1,98 @@
 {
-  "retention_plan_version": "1.0.0",
-  "generated_at": "2026-10-11T16:25:00Z",
+  "plan_version": "1.0",
+  "generated_at_utc": "2026-10-12T02:07:19Z",
+  "scope": "Lab 2 synthetic telemetry pipeline",
   "execution_mode": "DRY_RUN_ONLY",
-  "global_governance_rules": {
-    "time_basis": "PIPELINE_COMPLETION_TIMESTAMP",
-    "legal_hold_status": "INACTIVE_UNLESS_FLAGGED",
-    "active_release_dependency_enforced": true,
-    "actual_deletion_performed": false
-  },
-  "policies": [
+  "deletion_performed": false,
+  "publication_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+  "policy": [
     {
-      "policy_id": "RAW_INPUT_RETENTION",
-      "target_dataset": "raw_observations",
-      "ttl_days": 30,
-      "dependency_rule": "Cannot delete raw inputs if downstream active release or dependency holds reference.",
-      "dry_run_evaluation": {
-        "status": "PASS",
-        "action_simulated": "ARCHIVE_OR_DELETE_DRY_RUN",
-        "records_affected": 0,
-        "note": "Dry-run execution only; no physical deletion performed."
-      }
+      "data_class": "raw_source",
+      "retention_days": 30,
+      "retention_clock": "retrieved_at_utc from input/input_inventory.json",
+      "default_action_after_expiry": "ELIGIBLE_FOR_REVIEW",
+      "notes": "Never delete while an active downstream dependency or legal/administrative hold exists."
     },
     {
-      "policy_id": "RELEASE_RETENTION",
-      "target_dataset": "curated_candidate",
-      "ttl_days": 90,
-      "dependency_rule": "Independent analytical lifecycle release.",
-      "dry_run_evaluation": {
-        "status": "PASS",
-        "action_simulated": "RETAIN",
-        "records_affected": 0,
-        "note": "Within active lifecycle window."
-      }
+      "data_class": "curated_candidate",
+      "retention_days": 90,
+      "retention_clock": "candidate creation/completion timestamp recorded by an actual pipeline run",
+      "default_action_after_expiry": "ELIGIBLE_FOR_REVIEW",
+      "notes": "Current output is a local candidate, not a published release. This is a proposed TTL, not a claim that a release exists."
     },
     {
-      "policy_id": "QUARANTINE_RETENTION",
-      "target_dataset": "quarantine_collection",
-      "ttl_days": 7,
-      "dependency_rule": "Isolated error analysis stream; expires 7 days post-run completion.",
-      "dry_run_evaluation": {
-        "status": "PASS",
-        "action_simulated": "KEEP_OR_HOLD_DRY_RUN",
-        "records_affected": 355,
-        "note": "Dry-run simulation for quarantine isolation window."
-      }
+      "data_class": "quarantine_and_duplicates",
+      "retention_days": 7,
+      "retention_clock": "candidate creation/completion timestamp recorded by an actual pipeline run",
+      "default_action_after_expiry": "ELIGIBLE_FOR_REVIEW",
+      "notes": "Restricted staging data; retain longer only when an investigation, hold, or dependency requires it."
+    },
+    {
+      "data_class": "audit_manifests_lineage_and_quality_evidence",
+      "retention_days": 180,
+      "retention_clock": "artifact creation timestamp",
+      "default_action_after_expiry": "ELIGIBLE_FOR_REVIEW",
+      "notes": "Retain evidence at least as long as the longest dependent dataset TTL; never purge evidence required for an active audit."
     }
+  ],
+  "decision_order": [
+    "Check legal, security, and administrative holds.",
+    "Check active downstream dependencies.",
+    "Check the applicable retention clock and TTL.",
+    "If expired with no hold or dependency, mark eligible for review; do not automatically delete.",
+    "Record reviewer, decision, timestamp, and evidence before any separately authorized deletion."
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "R01",
+      "description": "Expired scratch artifact with no hold and no active dependency",
+      "conditions": {
+        "expired": true,
+        "legal_or_admin_hold": false,
+        "active_dependency": false
+      },
+      "expected_action": "ELIGIBLE_FOR_REVIEW",
+      "reason": "TTL has expired and no hold or dependency was found."
+    },
+    {
+      "scenario_id": "R02",
+      "description": "Expired quarantine artifact under an investigation hold",
+      "conditions": {
+        "expired": true,
+        "legal_or_admin_hold": true,
+        "active_dependency": false
+      },
+      "expected_action": "KEEP_HOLD",
+      "reason": "A hold overrides TTL expiry."
+    },
+    {
+      "scenario_id": "R03",
+      "description": "Expired raw input still referenced by an active downstream dataset",
+      "conditions": {
+        "expired": true,
+        "legal_or_admin_hold": false,
+        "active_dependency": true
+      },
+      "expected_action": "KEEP_ACTIVE_DEPENDENCY",
+      "reason": "An active dependency prevents removal."
+    },
+    {
+      "scenario_id": "R04",
+      "description": "Dataset has not reached its retention deadline",
+      "conditions": {
+        "expired": false,
+        "legal_or_admin_hold": false,
+        "active_dependency": false
+      },
+      "expected_action": "KEEP_NOT_EXPIRED",
+      "reason": "The retention period has not elapsed."
+    }
+  ],
+  "safety_constraints": [
+    "This plan is declarative and dry-run only.",
+    "No S3 object deletion is executed.",
+    "No local file deletion is executed.",
+    "Missing or uncertain timestamps must be treated as unknown, not as expired.",
+    "Holds and active dependencies override TTL expiry."
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "probe_id": "P05",
+  "intended_test": "Remove steward from curated metadata",
+  "decision": "REJECT",
+  "reasons": [
+    "METADATA"
+  ],
+  "eligible_for_independent_owner_review": false,
+  "release_published": false,
+  "candidate_sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+  "candidate_bytes": 209731,
+  "stats": {
+    "rows": 9610,
+    "distinct_record_ids": 9610,
+    "duplicate_rows": 0,
+    "null_temperature_rows": 0,
+    "out_of_range_temperature_rows": 0,
+    "required_field_failure_rows": 0,
+    "qa_reference_rows": 100,
+    "qa_matched_ids": 100,
+    "qa_agreeing_ids": 95,
+    "qa_coverage": 1.0,
+    "qa_agreement_of_all_reference_rows": 0.95
+  },
+  "evaluated_at_utc": "2026-10-12T02:21:40.608365+00:00",
+  "limitations": [
+    "Local test harness only; no release or cloud publication performed.",
+    "A passing gate is not owner approval.",
+    "Lineage validation checks required output names; it does not prove execution by itself."
+  ]
+}

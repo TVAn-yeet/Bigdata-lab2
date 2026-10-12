@@ -1,0 +1,101 @@
+{
+  "test_id": "M01",
+  "test_name": "Catalog query for curated_candidate",
+  "executed_at_utc": "2026-10-12T02:11:07.986774+00:00",
+  "result": "PASS",
+  "publication_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+  "dataset": {
+    "dataset_id": "curated_candidate",
+    "title": "curated.parquet",
+    "purpose": "Validated, deduplicated temperature observations standardized to Celsius.",
+    "owner": "Big Data Lab 2 \u2014 group bd-g01",
+    "steward": "Role C / Curation",
+    "classification": "analyst-release-candidate",
+    "allowed_use": "Synthetic teaching data only; no real-world operational use.",
+    "location": "file://submission/T3/curated.parquet",
+    "schema_version": "research-telemetry-v1",
+    "as_of": "2026-02-09T00:00:00Z",
+    "row_count": 9610,
+    "columns": [
+      {
+        "name": "record_id",
+        "type": "VARCHAR",
+        "meaning": "Deduplicated observation identifier",
+        "nullable": false
+      },
+      {
+        "name": "sensor_id",
+        "type": "VARCHAR",
+        "meaning": "Normalized sensor identifier",
+        "nullable": false
+      },
+      {
+        "name": "site",
+        "type": "VARCHAR",
+        "meaning": "Sensor site from reference data",
+        "nullable": false
+      },
+      {
+        "name": "event_time_utc",
+        "type": "TIMESTAMP",
+        "meaning": "Event time normalized to UTC",
+        "nullable": false
+      },
+      {
+        "name": "ingest_time_utc",
+        "type": "TIMESTAMP",
+        "meaning": "Ingestion time normalized to UTC",
+        "nullable": false
+      },
+      {
+        "name": "temperature_c",
+        "type": "DECIMAL(8,2)",
+        "meaning": "Temperature standardized to Celsius",
+        "nullable": false,
+        "unit": "\u00b0C"
+      },
+      {
+        "name": "is_late",
+        "type": "BOOLEAN",
+        "meaning": "Whether ingestion exceeded the late threshold",
+        "nullable": false
+      },
+      {
+        "name": "source_object",
+        "type": "VARCHAR",
+        "meaning": "Source object URI",
+        "nullable": false
+      },
+      {
+        "name": "source_row",
+        "type": "BIGINT",
+        "meaning": "Source row or line number",
+        "nullable": false
+      },
+      {
+        "name": "source_sha256",
+        "type": "VARCHAR",
+        "meaning": "SHA-256 of source object",
+        "nullable": false
+      }
+    ],
+    "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+    "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+    "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+    "quality_report": "submission/T3/t3-summary.json; evidence/T3/C05/residual_quality_check.json",
+    "retention": {
+      "policy": "candidate-90d",
+      "ttl_days": 90,
+      "time_basis": "pipeline_completion_utc, to be recorded by a real run",
+      "physical_deletion": "not performed",
+      "hold_and_dependency_checks_required": true
+    },
+    "provenance": {
+      "artifact_sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+      "artifact_bytes": 209731,
+      "candidate_manifest": "submission/T3/candidate_manifest.json",
+      "candidate_status": "LOCAL_CANDIDATE_NOT_PUBLISHED",
+      "reconciliation": "submission/T3/reconciliation-summary.json"
+    }
+  }
+}

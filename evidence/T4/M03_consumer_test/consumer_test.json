@@ -1,0 +1,78 @@
+{
+  "test_id": "M03",
+  "test_name": "Independent consumer artifact validation",
+  "executed_at_utc": "2026-10-12T02:12:47.831273+00:00",
+  "result": "PASS",
+  "check_count": 9,
+  "checks": [
+    {
+      "check": "catalog_has_seven_datasets",
+      "result": "PASS",
+      "detail": "count=7"
+    },
+    {
+      "check": "publication_status_is_local_candidate",
+      "result": "PASS",
+      "detail": "LOCAL_CANDIDATE_NOT_PUBLISHED"
+    },
+    {
+      "check": "artifact_curated.parquet_hash",
+      "result": "PASS",
+      "detail": "file exists and SHA-256 matches manifest"
+    },
+    {
+      "check": "artifact_quarantine.csv_hash",
+      "result": "PASS",
+      "detail": "file exists and SHA-256 matches manifest"
+    },
+    {
+      "check": "artifact_duplicates.csv_hash",
+      "result": "PASS",
+      "detail": "file exists and SHA-256 matches manifest"
+    },
+    {
+      "check": "reconciliation_conserved",
+      "result": "PASS",
+      "detail": "{\"n_raw\": 10205, \"n_curated\": 9610, \"n_quarantine\": 395, \"n_duplicates\": 200, \"sum_outputs\": 10205, \"conservation_delta\": 0, \"status\": \"CONSERVED\"}"
+    },
+    {
+      "check": "task3_summary_all_pass",
+      "result": "PASS",
+      "detail": "overall_status=ALL_PASS"
+    },
+    {
+      "check": "residual_quality_check_pass",
+      "result": "PASS",
+      "detail": "quality_status=PASS"
+    },
+    {
+      "check": "retention_is_dry_run",
+      "result": "PASS",
+      "detail": "mode=DRY_RUN_ONLY; deletion=False"
+    }
+  ],
+  "artifact_checks": [
+    {
+      "name": "curated.parquet",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "expected_records": 9610,
+      "expected_sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4"
+    },
+    {
+      "name": "quarantine.csv",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "expected_records": 395,
+      "expected_sha256": "8ee1dd29d64917d9c623f9968cfc08466636e9fbe0692237069f707cc44f0ae8"
+    },
+    {
+      "name": "duplicates.csv",
+      "exists": true,
+      "sha256_matches_manifest": true,
+      "expected_records": 200,
+      "expected_sha256": "3896923c3b630745ee9d1b97d6d383009348bf2012a5277baf30514ea8a5fdb9"
+    }
+  ],
+  "note": "This test verifies local files and recorded metadata. It does not prove that storage IAM policies are enforced or that candidates have been published."
+}

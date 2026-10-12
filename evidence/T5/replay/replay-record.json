@@ -1,0 +1,32 @@
+{
+  "run_id": "1d44ef99-8899-462a-b9e7-a7323c342295",
+  "start_time_utc": "2026-10-12T04:37:19Z",
+  "complete_time_utc": "2026-10-12T04:37:19Z",
+  "status": "COMPLETE",
+  "method": "Replay of code/run_curation.py in isolated /tmp workspace",
+  "input_manifest_sha256": "77dacfdb5a8b4e82fb2316990972de731a51b31f9fc052d739d0dea78e992331",
+  "contract_sha256": "cefd64851030ba3f20e95dc8511dc64a9de2e00d8e892baa066160485649f78a",
+  "code_sha256": "544bcd61463fde026350e99c1977928f53f0a8b43ef31dd4345fae05cef8c031",
+  "artifacts": {
+    "curated.parquet": {
+      "sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+      "bytes": 209731
+    },
+    "quarantine.csv": {
+      "sha256": "8ee1dd29d64917d9c623f9968cfc08466636e9fbe0692237069f707cc44f0ae8",
+      "bytes": 179641
+    },
+    "duplicates.csv": {
+      "sha256": "3896923c3b630745ee9d1b97d6d383009348bf2012a5277baf30514ea8a5fdb9",
+      "bytes": 107886
+    }
+  },
+  "reconciliation": {
+    "raw": 10205,
+    "curated": 9610,
+    "quarantine": 395,
+    "duplicates": 200,
+    "conservation_delta": 0
+  },
+  "note": "Replay evidence. Does not constitute independent approval or S3 publication."
+}

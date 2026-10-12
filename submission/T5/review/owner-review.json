@@ -1,0 +1,20 @@
+{
+  "review_id": "T5-P01-INDEPENDENT-REVIEW",
+  "probe_id": "P01",
+  "candidate_sha256": "17b163b27ddd5c3a2869252424b39caabef0fce78978bd94a15c9053dc36f9e4",
+  "candidate_rows": 9610,
+  "reviewer_name": "An",
+  "reviewer_role": "Independent Owner Reviewer",
+  "reviewed_at_utc": "2026-10-12T04:45:00Z",
+  "decision": "APPROVED",
+  "reason": "CHECKED.",
+  "checks": {
+    "candidate_hash_verified": true,
+    "quality_gate_reviewed": true,
+    "reconciliation_verified": true,
+    "metadata_and_steward_verified": true,
+    "source_integrity_verified": true,
+    "actual_curation_lineage_verified": true
+  },
+  "release_authorized": true
+}

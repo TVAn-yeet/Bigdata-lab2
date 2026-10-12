@@ -1,0 +1,61 @@
+defect_code,population,defect_count,sample_number,source_object,source_row,record_id,sensor_id
+DUPLICATE_VERSION,Key-eligible records before deduplication,200,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1001,R001001,S01
+DUPLICATE_VERSION,Key-eligible records before deduplication,200,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1002,R001002,S02
+DUPLICATE_VERSION,Key-eligible records before deduplication,200,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1003,R001003,S03
+DUPLICATE_VERSION,Key-eligible records before deduplication,200,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1004,R001004,S04
+DUPLICATE_VERSION,Key-eligible records before deduplication,200,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1005,R001005,S05
+EVENT_TIME_PARSE,Deterministic winners W,40,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,241,R000241,S01
+EVENT_TIME_PARSE,Deterministic winners W,40,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,242,R000242,S02
+EVENT_TIME_PARSE,Deterministic winners W,40,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,243,R000243,S03
+EVENT_TIME_PARSE,Deterministic winners W,40,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,244,R000244,S04
+EVENT_TIME_PARSE,Deterministic winners W,40,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,245,R000245,S05
+INGEST_TIME_PARSE,Parsed intake,20,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,361,R000361,S01
+INGEST_TIME_PARSE,Parsed intake,20,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,362,R000362,S02
+INGEST_TIME_PARSE,Parsed intake,20,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,363,R000363,S03
+INGEST_TIME_PARSE,Parsed intake,20,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,364,R000364,S04
+INGEST_TIME_PARSE,Parsed intake,20,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,365,R000365,S05
+INVALID_RECORD_ID,Parsed intake,20,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,341,,S01
+INVALID_RECORD_ID,Parsed intake,20,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,342,,S02
+INVALID_RECORD_ID,Parsed intake,20,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,343,,S03
+INVALID_RECORD_ID,Parsed intake,20,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,344,,S04
+INVALID_RECORD_ID,Parsed intake,20,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,345,,S05
+LATE_RETAINED,Chronologically valid winners W,200,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,381,R000381,S01
+LATE_RETAINED,Chronologically valid winners W,200,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,382,R000382,S02
+LATE_RETAINED,Chronologically valid winners W,200,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,383,R000383,S03
+LATE_RETAINED,Chronologically valid winners W,200,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,384,R000384,S04
+LATE_RETAINED,Chronologically valid winners W,200,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,385,R000385,S05
+NUMERIC_INVALID,Deterministic winners W,170,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1,R000001,S01
+NUMERIC_INVALID,Deterministic winners W,170,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,2,R000002,S02
+NUMERIC_INVALID,Deterministic winners W,170,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,3,R000003,S03
+NUMERIC_INVALID,Deterministic winners W,170,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,4,R000004,S04
+NUMERIC_INVALID,Deterministic winners W,170,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,5,R000005,S05
+PARSE_FAILURE,Parsed intake,5,1,s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl,5201,,
+PARSE_FAILURE,Parsed intake,5,2,s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl,5202,,
+PARSE_FAILURE,Parsed intake,5,3,s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl,5203,,
+PARSE_FAILURE,Parsed intake,5,4,s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl,5204,,
+PARSE_FAILURE,Parsed intake,5,5,s3://research-raw/lab2/inputs/batch-01/observations_b.jsonl,5205,,
+REQUIRED_FIELD_MISSING,Deterministic winners W,110,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,1,R000001,S01
+REQUIRED_FIELD_MISSING,Deterministic winners W,110,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,2,R000002,S02
+REQUIRED_FIELD_MISSING,Deterministic winners W,110,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,3,R000003,S03
+REQUIRED_FIELD_MISSING,Deterministic winners W,110,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,4,R000004,S04
+REQUIRED_FIELD_MISSING,Deterministic winners W,110,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,5,R000005,S05
+TIME_ORDER,Deterministic winners W,30,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,281,R000281,S01
+TIME_ORDER,Deterministic winners W,30,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,282,R000282,S02
+TIME_ORDER,Deterministic winners W,30,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,283,R000283,S03
+TIME_ORDER,Deterministic winners W,30,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,284,R000284,S04
+TIME_ORDER,Deterministic winners W,30,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,285,R000285,S05
+UNIT_UNSUPPORTED,Deterministic winners W,40,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,161,R000161,S01
+UNIT_UNSUPPORTED,Deterministic winners W,40,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,162,R000162,S02
+UNIT_UNSUPPORTED,Deterministic winners W,40,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,163,R000163,S03
+UNIT_UNSUPPORTED,Deterministic winners W,40,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,164,R000164,S04
+UNIT_UNSUPPORTED,Deterministic winners W,40,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,165,R000165,S05
+UNKNOWN_SENSOR,Deterministic winners W,30,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,311,R000311,S99
+UNKNOWN_SENSOR,Deterministic winners W,30,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,312,R000312,S99
+UNKNOWN_SENSOR,Deterministic winners W,30,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,313,R000313,S99
+UNKNOWN_SENSOR,Deterministic winners W,30,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,314,R000314,S99
+UNKNOWN_SENSOR,Deterministic winners W,30,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,315,R000315,S99
+VALUE_OUT_OF_RANGE,Deterministic winners W,40,1,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,201,R000201,S01
+VALUE_OUT_OF_RANGE,Deterministic winners W,40,2,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,202,R000202,S02
+VALUE_OUT_OF_RANGE,Deterministic winners W,40,3,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,203,R000203,S03
+VALUE_OUT_OF_RANGE,Deterministic winners W,40,4,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,204,R000204,S04
+VALUE_OUT_OF_RANGE,Deterministic winners W,40,5,s3://research-raw/lab2/inputs/batch-01/observations_a.csv,205,R000205,S05

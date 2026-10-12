@@ -1,0 +1,31 @@
+{
+  "probe_id": "P08",
+  "intended_test": "Remove mismatching QA sample R000810 from candidate",
+  "decision": "REJECT",
+  "reasons": [
+    "COVERAGE"
+  ],
+  "eligible_for_independent_owner_review": false,
+  "release_published": false,
+  "candidate_sha256": "7fd155fb9450a0ef3de1d06c1115acb3689af7a82c1d25087985880dc089f10a",
+  "candidate_bytes": 209926,
+  "stats": {
+    "rows": 9609,
+    "distinct_record_ids": 9609,
+    "duplicate_rows": 0,
+    "null_temperature_rows": 0,
+    "out_of_range_temperature_rows": 0,
+    "required_field_failure_rows": 0,
+    "qa_reference_rows": 100,
+    "qa_matched_ids": 99,
+    "qa_agreeing_ids": 95,
+    "qa_coverage": 0.99,
+    "qa_agreement_of_all_reference_rows": 0.95
+  },
+  "evaluated_at_utc": "2026-10-12T02:21:41.348778+00:00",
+  "limitations": [
+    "Local test harness only; no release or cloud publication performed.",
+    "A passing gate is not owner approval.",
+    "Lineage validation checks required output names; it does not prove execution by itself."
+  ]
+}
